@@ -1,7 +1,7 @@
 # YAML and JSON
 My study of YAML and JSON
 
-I got problems.  I am trying to figure out a lot of YAML and JSON and I can't find any online help that helps.  Maybe this will help someone else.  Maybe not.  This will expose how dumb I am, but it's worth it if I make someone's day.  You'll need access to a command line with "jq" a wonderful parser.  You install it with apt-get or yum or whatever your Linux distro uses.
+I got problems.  I am trying to figure out a lot of YAML and JSON and I can't find any online help that helps.  Maybe this will help someone else.  Maybe not.  This will expose how dumb I am, but it's worth it if I make someone's day.  You'll need access to a command line with "jq" a wonderful parser.  You install it with apt-get or yum or whatever your Linux distro uses.  Thanks goes to this site: https://onlineyamltools.com/convert-yaml-to-json
 
 #### Here's some YAML I made up:
 
@@ -116,4 +116,14 @@ In this case, .bixby.drop.drill.crabbo is a "header" for an array consisting of 
     .bixby.drop.drill.crabbo[*]                         
     jq: 1 compile error
 
-So to get all the elements in an array, I call empty brackets, and not a wildcard. 
+So to get all the elements in an array, I call empty brackets, and not a wildcard. But whatabout "top level headers?"  I think they are really called "keys" becaise I found this:
+
+    cat ~/json.json | jq -r keys
+    [
+      "bixby",
+      "buzz",
+      "foo",
+      "fuzz",
+      "plugh"
+    ]
+
