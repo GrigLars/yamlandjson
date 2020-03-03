@@ -5,27 +5,30 @@ I got problems.  I am trying to figure out a lot of YAML and JSON and I can't fi
 
 #### Here's some YAML I made up:
 
-    foo:                    
-      bar:                  
-       - baz                
-       - biff               
-       - xyzzy              
-      bong:                 
-       - bing               
-       - boof               
-    plugh:                  
-      - dink                
-      - donk:               
-          - derp            
-          - nudoy           
-      - dolamite            
-    bixby:                  
-      drop:                 
-        drill:              
-         crabbo:            
-           - stabbo         
-           - stompo         
-           
+    foo:
+      bar:
+       - baz
+       - biff
+       - xyzzy
+      bong:
+       - bing
+       - boof
+    plugh:
+      - dink
+      - donk:
+          - derp
+          - nudoy: 
+              durr
+      - dolamite
+    bixby:
+      drop:
+        drill:
+         crabbo:
+           - stabbo
+           - stompo
+    buzz: bats
+    fuzz: cats
+    
 #### Here's the same thing in JSON:
 
     {
@@ -45,7 +48,9 @@ I got problems.  I am trying to figure out a lot of YAML and JSON and I can't fi
         {
           "donk": [
             "derp",
-            "nudoy"
+            {
+              "nudoy": "durr"
+            }
           ]
         },
         "dolamite"
@@ -59,7 +64,9 @@ I got problems.  I am trying to figure out a lot of YAML and JSON and I can't fi
             ]
           }
         }
-      }
+      },
+      "buzz": "bats",
+      "fuzz": "cats"
     }
 
 So, using jq, I started messing with it.  I wanted to have a conversion or understanding in my head, "how does the YAML translate to JSON?"  Like, is there a one-to-one translation? It seems most start out with a "dot" like, "foo" for example:
